@@ -1,0 +1,7 @@
+# Local
+.history
+.vscode
+
+# Virtual Env
+.venv
+.env
