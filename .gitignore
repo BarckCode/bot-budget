@@ -5,3 +5,10 @@
 # Virtual Env
 .venv
 .env
+
+# Python
+*pycache*
+
+# instabot
+bot.egg*
+config
