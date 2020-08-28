@@ -1,20 +1,18 @@
 from instabot import Bot
 
 
-def follow_user(INSTA_USER, INSTA_PASSWORD):
+def follow_user(user_login, user_password, user):
     """
-        Función para serguir a un usuario
+        Function to follow a user
     """
 
-    # Inicializamos la instancia del Bot.
-    bot = Bot(
-        follow_delay = 60 # Segundos que tarda en seguir a cada persona.
-    )
+    # Initialize Bot.
+    bot = Bot()
 
 
-    # Hacemos Login.
-    bot.login(username=INSTA_USER, password=INSTA_PASSWORD)
+    # Login to Instagram.
+    bot.login(username=user_login, password=user_password)
 
 
-    # Seleccionamos un usuario objetivo.
-    bot.follow('andresvidoza')
+    # Follow user
+    bot.follow(user)

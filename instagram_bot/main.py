@@ -1,23 +1,44 @@
-import os
-from dotenv import load_dotenv
+import click
 
 # Utils:
+from .utils.conf import _get_environment_variables
+
+# Functions:
 from .follow import follow_user
 
-
-def instagram_main():
+@click.command()
+@click.option(
+    '-a',
+    '--action',
+    'action',
+    type=click.Choice([
+        'follow',
+        'like',
+    ], case_sensitive=False),
+    required=True,
+    help='Action to be taken by the bot',
+)
+@click.option(
+    '-u',
+    '--user',
+    'user',
+    prompt='Instagram user',
+    help='Instagram user'
+)
+def instagram(action, user):
     """
-        Instagram Options
+        Bot for Instagram
     """
 
-    # Inicializamos la función para leer las variables de entorno.
-    load_dotenv()
+    # Get Instagram login data
+    _instagram_data = _get_environment_variables()
 
 
-    # Cargamos los datos de Login de Instagram.
-    INSTA_USER = os.getenv('INSTA_USER')
-    INSTA_PASSWORD = os.getenv('INSTA_PASSWORD')
+    # Instagram bot options:
+    if action == 'follow' and user != 'undefined' :
+        follow_user(
+            _instagram_data[0],
+            _instagram_data[1],
+            user
+        )
 
-
-    # Ejecutamos:
-    follow_user(INSTA_USER, INSTA_PASSWORD)

@@ -1,25 +1,14 @@
 import click
-from instagram_bot.main import instagram_main
+
+# Local Modules
+from instagram_bot.main import instagram
+from telegram_bot.main import telegram
+from twitter_bot.main import twitter
 
 
 @click.group()
 def cli():
     pass
-
-
-@click.command()
-def instagram():
-    click.echo('Bot para Instagram')
-
-
-@click.command()
-def telegram():
-    click.echo('Bot para Telegram')
-
-
-@click.command()
-def twitter():
-    click.echo('Bot para Twitter')
 
 
 cli.add_command(instagram)
