@@ -1,4 +1,4 @@
-# Social Media Bots
+# Telegram Bot
 
 ## Introduction:
 
@@ -10,8 +10,5 @@ pip3 install --editable .
 
 bot --help
 
-## Instagram Bot
-
-> Library: [instabot documentation](https://instagrambot.github.io/docs/en/For_developers.html#Intro)
 
 
