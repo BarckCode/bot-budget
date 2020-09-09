@@ -10,9 +10,9 @@ today = date.today()
 # Data Excample
 initial_balance = 1000
 
-# expenses = (' ', 60, today)
+expenses = (' ', 60, today)
 
-income = ('100', ' ', '2020-09-07')
+# income = ('100', ' ', today)
 
 
 def type_of_data():

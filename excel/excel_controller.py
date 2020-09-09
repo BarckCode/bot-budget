@@ -3,6 +3,7 @@ import os.path
 
 # Excel Library
 import openpyxl
+from openpyxl import load_workbook
 
 
 class Controller:
@@ -12,10 +13,12 @@ class Controller:
 
     def __init__(self):
         self.wb = openpyxl.Workbook()   # Inicialize Workbook
+        self.filename = 'money_control.xlsx'
+        self.sheet_name = 'Control de Gastos'
 
 
     def check_excel_exist(self):
-        excel_exist = os.path.isfile('money_control.xlsx')
+        excel_exist = os.path.isfile(self.filename)
 
         if excel_exist:
             return True     # Excel Exist
@@ -26,10 +29,15 @@ class Controller:
     def add_data_to_excel(self, initial_balance, data):
         exist = self.check_excel_exist()
         if exist:
-            pass
+            wb = load_workbook(filename=self.filename)
+            sheet_expense_control = wb[self.sheet_name]
+
+            # Add Expenses or Income
+            sheet_expense_control.append(data)          # <------ This not found. Developing
+
         else:
             sheet = self.wb.active              # Active Sheet
-            sheet.title = 'Control de Gastos'   # Rename Sheet
+            sheet.title = self.sheet_name       # Rename Sheet
 
 
             initial_data = [
@@ -45,5 +53,5 @@ class Controller:
             # Add Expenses or Income
             sheet.append(data)
 
-        # Save Excel
-        self.wb.save('money_control.xlsx')
+            # Save Excel
+            self.wb.save(self.filename)
