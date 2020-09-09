@@ -1,33 +1,33 @@
-# Packages
-import openpyxl
+# Python Core
+from datetime import date
+
+# Internal Modules
+from excel.excel_controller import Controller
 
 
-# Data
-money_flow = [
-    (' ', 750, '2020-09-05'),
-    (' ', 10, '2020-09-06'),
-    (' ', 60, '2020-09-07'),
-]
+today = date.today()
 
-# Inicialize Workbook
-wb = openpyxl.Workbook()
+# Data Excample
+initial_balance = 1000
 
-# Create Sheet
-sheet = wb.active
-sheet.title = 'Control de Gastos'
+expenses = (' ', 60, today)
 
-# Initial Balance
-sheet.append(('Saldo inicial:', 1000))
+# income = ('100', ' ', '2020-09-07')
 
 
-# Create Header
-sheet.append(('Ingresos', 'Gastos', 'Fecha'))
+def type_of_data():
+    if expenses:
+        return expenses
+    else:
+        return income
 
 
-for data in money_flow:
-    # Tuple with values
-    sheet.append(data)
+def main():
+    data = type_of_data()
+
+    excel = Controller()
+    excel.add_data_to_excel(initial_balance, data)
 
 
-# Save Workbook
-wb.save('money_control.xlsx')
+if __name__ == '__main__':
+    main()
