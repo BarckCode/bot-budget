@@ -15,7 +15,7 @@ expenses = (' ', 60, today)
 # income = ('100', ' ', today)
 
 
-def type_of_data():
+def type_of_data():     # Filter data (Developing)
     try:
         return expenses
     except:

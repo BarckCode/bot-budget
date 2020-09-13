@@ -8,3 +8,5 @@ source .venv/bin/activate
 
 
 
+# Buscar el bot en telegram:
+telegram.me/<bot_username>
