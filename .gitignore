@@ -9,6 +9,5 @@
 # Python
 *pycache*
 
-# instabot
-bot.egg*
-config
+# Keys
+*.key
