@@ -1,33 +1,37 @@
 # Python Core
-from datetime import date
-
+import os
+# Env Variables
+from dotenv import load_dotenv
+# Telegram Library
+from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
+from telegram import InlineQueryResultArticle, InputTextMessageContent, ReplyKeyboardMarkup
 # Internal Modules
-from excel.excel_controller import Controller
+from utils.commands import AllCommands
 
-
-today = date.today()
-
-# Data Excample
-initial_balance = 1000
-
-expenses = (' ', 60, today)
-
-# income = ('100', ' ', today)
-
-
-def type_of_data():     # Filter data (Developing)
-    try:
-        return expenses
-    except:
-        return income
-
-
-def main():
-    data = type_of_data()
-
-    excel = Controller()
-    excel.add_data_to_excel(initial_balance, data)
-
+# Load Bot Commands
+all_commands = AllCommands()
 
 if __name__ == '__main__':
-    main()
+    """
+    Program Entry
+    """
+    # Load Env Variables
+    load_dotenv()
+    TOKEN_API_TELEGRAM = os.getenv('TOKEN_API_TELEGRAM')
+
+    # Load Bot
+    updater = Updater(token=TOKEN_API_TELEGRAM, use_context=True)
+    dispatcher = updater.dispatcher
+
+    # Commands
+    start_handler = CommandHandler('start', all_commands.start)
+    dispatcher.add_handler(start_handler)
+
+    caps_handler = CommandHandler('print', all_commands.print_console)
+    dispatcher.add_handler(caps_handler)
+
+    unknown_handler = MessageHandler(Filters.command, all_commands.unknown)
+    dispatcher.add_handler(unknown_handler)
+
+    # Start Bot
+    updater.start_polling()
