@@ -1,58 +1,72 @@
+from utils.helpers.send_messages_helper import AllMessages
+
 class AllCommands():
     """
     Class with all the commands that we can use with the bot
     """
     def __init__(self):
-        pass
+        self.messages = AllMessages()
 
 
     # Welcome Message:
     def start(self, update, context):
-        update.message.reply_text(
-            'Hola! Soy BotBugetControl.\n'
-            'Un bot. Creado para ayudarte a manejar mejor tu presupuesto\n\n'
-            'Puedes controlarme utilizando estos comandos:',
-        )
+        self.messages.welcome_message(update=update)
 
 
     # Save Current Balance
     def save_current_balance(self, update, context):
         if len(context.args) == 0:
-            context.bot.send_message(
-                chat_id=update.effective_chat.id,
-                text=f"El comando necesita que le envíes un valor.\nPor ejemplo:\n/set_saldo 1000"
-            )
+            message = f'El comando necesita que le envíes un valor.\nPor ejemplo:\n/set_saldo 1000'
         else:
-            current_balance = ' '.join(context.args)
-            context.bot.send_message(
-                chat_id=update.effective_chat.id,
-                text=f"Tu saldo actual es de: {current_balance}"
-            )
+            message = 'Has configurado tu saldo actual en'
+
+        self.messages.standard_message(
+            update=update,
+            context=context,
+            message=message,
+        )
 
 
     # Save Income
     def save_income(self, update, context):
-        income = ' '.join(context.args)
-        context.bot.send_message(
-            chat_id=update.effective_chat.id,
-            text=f"Has introducido este ingreso: {income}",
+        if len(context.args) == 0:
+            message = f'El comando necesita que le envíes un valor.\nPor ejemplo:\n/set_ingreso 100'
+        else:
+            message = 'Has añadido este ingreso'
+
+        self.messages.standard_message(
+            update=update,
+            context=context,
+            message=message,
         )
 
 
     # Save Expense
     def save_expense(self, update, context):
-        expense = ' '.join(context.args)
-        context.bot.send_message(
-            chat_id=update.effective_chat.id,
-            text=f"Has introducido este gasto: {expense}"
+        if len(context.args) == 0:
+            message = f'El comando necesita que le envíes un valor.\nPor ejemplo:\n/set_gasto 200'
+        else:
+            message = 'Has añadido este gasto'
+
+        self.messages.standard_message(
+            update=update,
+            context=context,
+            message=message,
         )
 
 
+    # Show current balance
     def get_current_balance(self, update, context):
-        current_balance = ' '.join(context.args)
-        context.bot.send_message(
-            chat_id=update.effective_chat.id,
-            text=f"Tu saldo actual es de: {current_balance}"
+        if len(context.args) > 0:
+            message = f'El comando no necesita valores.\nPara conocer tu saldo actual ejecuta:\n/saldo_actual'
+        else:
+            message = 'Tu saldo actual es: 900'
+
+        self.messages.standard_message(
+            update=update,
+            context=context,
+            message=message,
+            args=False
         )
 
 

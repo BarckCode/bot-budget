@@ -1,0 +1,9 @@
+Hola! Soy BotBugetControl.
+Un bot. Creado para ayudarte a manejar mejor tu presupuesto.
+
+Puedes controlarme utilizando estos comandos:
+
+/set\_saldo - añade tu saldo actual.
+/set\_ingreso - añade un ingreso.
+/set\_gasto - añade un nuevo gasto.
+/saldo\_actual - muestra tu saldo actual.
