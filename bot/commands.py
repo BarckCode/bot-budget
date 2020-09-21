@@ -37,7 +37,6 @@ class AllCommands():
             message = f'El comando necesita que le envíes un valor.\nPor ejemplo:\n/set_ingreso 100'
         else:
             message = 'Has añadido este ingreso'
-            print(context.args)
 
         self.messages.standard_message(
             update=update,
@@ -52,7 +51,6 @@ class AllCommands():
             message = f'El comando necesita que le envíes un valor.\nPor ejemplo:\n/set_gasto 200'
         else:
             message = 'Has añadido este gasto'
-            print(context.args)
 
         self.messages.standard_message(
             update=update,

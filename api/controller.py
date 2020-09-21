@@ -1,5 +1,9 @@
+# MongoDB Driver
+from pymongo import MongoClient
+from bson.objectid import ObjectId
 # Internal Modules
 from api.model import ModelApi
+
 
 class DataController():
     """
@@ -9,27 +13,46 @@ class DataController():
         self.model_api = ModelApi()
 
 
-    def user_exist(self, _id):
+    def users_collections(self, users):
+        # Collections
+        return users
 
-        validation = self.model_api.query_the_database_once("43596404267294110")
-        print(validation)
+
+    def user_exist(self, user_id):
+
+        validation = self.model_api.find_one_value_in_db(
+            field="user_id",
+            value=user_id,
+        )
+
+        return validation
 
 
-    def user_data(self, data, initial_budget=""):
-        _id = data.id
+    def user_data(self, data, initial_budget=0):
+        user_id = data.id
         username = data.username
 
-        # self.user_exist(_id=_id) --> Hay que probar cómo realizar la busqueda a la BBDD para validar la información antes de añadirla.
+        # Validation:
+        validation = self.user_exist(user_id=user_id)
 
-        user = {
-            "_id": _id,
-            "username": username,
-            "budget": {
-                "initial_budget": initial_budget,
-                "current_balance": "",
-            },
+        if validation == None:
 
-            "relationship_id": _id,
-        }
+            user = {
+                "user_id": user_id,
+                "username": username,
+                "budget": {
+                    "initial_budget": initial_budget,
+                    "current_balance": initial_budget,
+                },
 
+                "relationship_id": user_id,
+            }
+
+            self.model_api.insert_one_document_into_db(document=user)
+
+        else:
+            print('Nos mantenemos a la espera de comandos...')
+
+
+        ## Hay que continuar con la validación e inserción del initial_budget.
 
