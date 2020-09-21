@@ -1,4 +1,5 @@
-from utils.helpers.send_messages_helper import AllMessages
+from bot.helpers.send_messages_helper import AllMessages
+from api import DataController
 
 class AllCommands():
     """
@@ -6,13 +7,13 @@ class AllCommands():
     """
     def __init__(self):
         self.messages = AllMessages()
+        self.data_controller = DataController()
 
 
     # Welcome Message:
     def start(self, update, context):
         self.messages.welcome_message(update=update)
-        print(update.message['chat'].id)    # ID del usuario.
-        print(update)
+        self.data_controller.user_data(data=update.message['chat'])
 
 
     # Save Current Balance
@@ -21,6 +22,7 @@ class AllCommands():
             message = f'El comando necesita que le envíes un valor.\nPor ejemplo:\n/set_saldo 1000'
         else:
             message = 'Has configurado tu saldo actual en'
+            self.data_controller.user_data(initial_budget=context.args)
 
         self.messages.standard_message(
             update=update,
@@ -35,6 +37,7 @@ class AllCommands():
             message = f'El comando necesita que le envíes un valor.\nPor ejemplo:\n/set_ingreso 100'
         else:
             message = 'Has añadido este ingreso'
+            print(context.args)
 
         self.messages.standard_message(
             update=update,
@@ -49,6 +52,7 @@ class AllCommands():
             message = f'El comando necesita que le envíes un valor.\nPor ejemplo:\n/set_gasto 200'
         else:
             message = 'Has añadido este gasto'
+            print(context.args)
 
         self.messages.standard_message(
             update=update,
