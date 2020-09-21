@@ -11,6 +11,8 @@ class AllCommands():
     # Welcome Message:
     def start(self, update, context):
         self.messages.welcome_message(update=update)
+        print(update.message['chat'].id)    # ID del usuario.
+        print(update)
 
 
     # Save Current Balance
