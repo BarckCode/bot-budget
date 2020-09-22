@@ -32,27 +32,35 @@ class DataController():
         user_id = data.id
         username = data.username
 
-        # Validation:
-        validation = self.user_exist(user_id=user_id)
+        # Check user exists:
+        user_data = self.user_exist(user_id=user_id)
 
-        if validation == None:
+        """
+        Issue whit user data:
+        Many users do not configure the username. So its value is null.
+        Do we force users to configure the username?
+        """
+        if user_data == None:
 
             user = {
                 "user_id": user_id,
                 "username": username,
                 "budget": {
                     "initial_budget": initial_budget,
-                    "current_balance": initial_budget,
+                    "current_balance": initial_budget
                 },
 
-                "relationship_id": user_id,
+                "relationship_id": user_id
             }
 
             self.model_api.insert_one_document_into_db(document=user)
-
         else:
-            print('Nos mantenemos a la espera de comandos...')
+            print('El usuario existe. A la espera de comandos...')
 
-
-        ## Hay que continuar con la validación e inserción del initial_budget.
+            self.model_api.find_one_and_update_document(
+                field_to_search='_id',
+                value_to_search=user_data['_id'],
+                field_to_replace='budget.initial_budget',
+                value_to_replace=float(initial_budget[0])
+            )
 

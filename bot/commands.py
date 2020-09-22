@@ -22,7 +22,7 @@ class AllCommands():
             message = f'El comando necesita que le envíes un valor.\nPor ejemplo:\n/set_saldo 1000'
         else:
             message = 'Has configurado tu saldo actual en'
-            self.data_controller.user_data(initial_budget=context.args)
+            self.data_controller.user_data(data=update.message['chat'], initial_budget=context.args)
 
         self.messages.standard_message(
             update=update,

@@ -39,3 +39,10 @@ class ModelApi():
 
     def insert_one_document_into_db(self, document):
         self.users.insert_one(document)
+
+
+    def find_one_and_update_document(self, field_to_search, value_to_search, field_to_replace, value_to_replace):
+        self.users.find_one_and_update(
+            {field_to_search: value_to_search},
+            {'$inc': {field_to_replace: value_to_replace}}
+        )
