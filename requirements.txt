@@ -1,5 +1,3 @@
 python-dotenv
 python-telegram-bot
 pymongo
-pymongo[srv]
-openpyxl
