@@ -1,0 +1,11 @@
+version: "3.8"
+
+services:
+  app:
+    container_name: bc-app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    dns: 8.8.8.8
+    volumes:
+     - ".:/apps/:rw"

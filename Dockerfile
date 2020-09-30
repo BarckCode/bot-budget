@@ -1,17 +1,16 @@
 FROM ubuntu:20.10
 
-WORKDIR /app
+WORKDIR /opt/libs/apps
 
-# Copy the application
-COPY . .
+COPY requirements.txt .
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     python3 python3-pip
 
 # Install Libs
-RUN pip install -r requirements.txt
-RUN pip install \
-    pymongo[srv]
+RUN pip3 install -r requirements.txt
+RUN pip3 install pymongo[srv]
 
-# Run app
-CMD ["python3", "main.py"]
+WORKDIR /apps
+
+CMD ["tail", "-f", "/dev/null"]

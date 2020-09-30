@@ -35,11 +35,6 @@ class DataController():
         # Check user exists:
         user_data = self.user_exist(user_id=user_id)
 
-        """
-        Issue whit user data:
-        Many users do not configure the username. So its value is null.
-        Do we force users to configure the username?
-        """
         if user_data == None:
 
             user = {
@@ -54,8 +49,7 @@ class DataController():
             }
 
             self.model_api.insert_one_document_into_db(document=user)
-        else:
-            print('El usuario existe. A la espera de comandos...')
+        elif initial_budget != 0:
 
             self.model_api.find_one_and_update_document(
                 field_to_search='_id',
@@ -63,4 +57,5 @@ class DataController():
                 field_to_replace='budget.initial_budget',
                 value_to_replace=float(initial_budget[0])
             )
-
+        else:
+            print('El usuario existe. A la espera de comandos...')

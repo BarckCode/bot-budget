@@ -3,6 +3,9 @@
 .vscode
 demo.drawio
 
+### dotenv ###
+.env
+
 # Keys
 *.key
 
