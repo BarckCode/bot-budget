@@ -14,5 +14,4 @@ build_job:
 test_job:
   stage: test
   script:
-   - python3 main.py
-  interruptible: true
+   - bash scripts/status_app.sh
