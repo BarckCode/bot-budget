@@ -7,5 +7,6 @@ services:
       context: .
       dockerfile: Dockerfile
     dns: 8.8.8.8
+    env_file: .env
     volumes:
      - ".:/apps/:rw"

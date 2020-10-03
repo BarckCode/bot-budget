@@ -4,8 +4,6 @@ from pymongo import MongoClient
 # Python Core
 import ssl
 import os
-# Env Variables
-from dotenv import load_dotenv
 
 class ModelApi():
     """
@@ -13,8 +11,7 @@ class ModelApi():
     """
     def __init__(self):
         # Load Env Variables
-        load_dotenv()
-        CONECTION_TO_DATABASE = os.getenv('CONECTION_TO_DATABASE')
+        CONECTION_TO_DATABASE = os.environ['CONECTION_TO_DATABASE']
 
         # Conect to MongoDB
         client = MongoClient(
