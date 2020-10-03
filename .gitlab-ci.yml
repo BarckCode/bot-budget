@@ -7,6 +7,6 @@ default:
    - pip3 install pymongo[srv]
 
   script:
-   - export TOKEN_API_TELEGRAM=$TOKEN_API_TELEGRAM
-   - export CONECTION_TO_DATABASE=$CONECTION_TO_DATABASE
+   - export TOKEN_API_TELEGRAM="$TOKEN_API_TELEGRAM"
+   - export CONECTION_TO_DATABASE="$CONECTION_TO_DATABASE"
    - python3 main.py
