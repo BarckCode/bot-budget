@@ -23,4 +23,5 @@ else
     echo "La app no ha levantado correctamente."
     ps -v | grep python3 | egrep -v grep
     echo $?
+    python3 main.py
 fi
