@@ -4,7 +4,7 @@
 
 # Start App
 python3 main.py &
-sleep 2s
+sleep 5s
 
 # Look for the application process
 PID=$(ps -v | grep python3 | egrep -v grep | awk '{print $1}')
@@ -19,6 +19,9 @@ then
     sleep 5s
     echo "Se va a matar la app con PID: $PID"
     pkill python3
+    echo "*************************************"
+    echo "Status Test OK"
+    echo "*************************************"
 else
     echo "*************************************"
     echo "La app no ha levantado correctamente."
@@ -26,5 +29,7 @@ else
     echo $?
     echo "*************************************"
     echo "Errores:"
-    python3 main.py
+    python3 main.py &
+    sleep 5s
+    pkill python3
 fi

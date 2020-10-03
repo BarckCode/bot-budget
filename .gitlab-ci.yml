@@ -7,8 +7,8 @@ stages:
 build_job:
   stage: build
   script:
-   - python3 -V
    - pip3 -V
+   - echo $PRUEBA
 
 
 test_job:
