@@ -6,4 +6,7 @@ default:
    - pip3 install -r requirements.txt
    - pip3 install pymongo[srv]
 
-  script: python3 main.py
+  script:
+   - export $TOKEN_API_TELEGRAM
+   - export $CONECTION_TO_DATABASE
+   - python3 main.py
