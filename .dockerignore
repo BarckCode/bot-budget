@@ -11,6 +11,8 @@ demo.drawio
 
 # Terraform
 .terraform
+*.tfstate*
+kube_config.yaml
 
 ### macOS ###
 # General
