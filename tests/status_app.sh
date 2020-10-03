@@ -21,4 +21,6 @@ then
     pkill python3
 else
     echo "La app no ha levantado correctamente."
+    ps -v | grep python3 | egrep -v grep
+    echo $?
 fi
