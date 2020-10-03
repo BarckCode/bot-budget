@@ -6,4 +6,4 @@ default:
    - pip3 install -r requirements.txt
    - pip3 install pymongo[srv]
 
-  script: bundle exec python3 main.py
+  script: python3 main.py
