@@ -20,8 +20,11 @@ then
     echo "Se va a matar la app con PID: $PID"
     pkill python3
 else
+    echo "*************************************"
     echo "La app no ha levantado correctamente."
     ps -v | grep python3 | egrep -v grep
     echo $?
+    echo "*************************************"
+    echo "Errores:"
     python3 main.py
 fi
