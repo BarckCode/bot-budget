@@ -14,4 +14,4 @@ build_job:
 test_job:
   stage: test
   script:
-   - bash scripts/status_app.sh
+   - bash tests/status_app.sh
