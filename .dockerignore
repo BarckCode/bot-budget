@@ -9,6 +9,9 @@ demo.drawio
 # Keys
 *.key
 
+# Terraform
+.terraform
+
 ### macOS ###
 # General
 .DS_Store

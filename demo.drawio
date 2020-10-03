@@ -1,6 +1,6 @@
-<mxfile host="9e01cd36-964e-4b8a-9a1c-4e69416930cb" modified="2020-09-20T17:49:07.591Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.49.0 Chrome/83.0.4103.122 Electron/9.2.1 Safari/537.36" etag="oZAHsQPVfm_Lf5VB5zh5" version="13.1.3" pages="2">
+<mxfile host="4b659da5-7793-4ec4-92fe-173f541bc2ab" modified="2020-10-03T08:35:49.839Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.49.2 Chrome/83.0.4103.122 Electron/9.2.1 Safari/537.36" etag="pekir8T9j90FZ-0J6ras" version="13.1.3" pages="2">
     <diagram id="6hGFLwfOUW9BJ-s0fimq" name="App Structure">
-        <mxGraphModel dx="761" dy="489" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="579" dy="546" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -31,6 +31,11 @@
                 </mxCell>
                 <mxCell id="46" value="Telegram Bot" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="20" y="300" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="73" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="47">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="80" y="360" as="targetPoint"/>
+                    </mxGeometry>
                 </mxCell>
                 <mxCell id="47" value="/start" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="120" y="435" width="120" height="60" as="geometry"/>
@@ -90,7 +95,7 @@
         </mxGraphModel>
     </diagram>
     <diagram id="80x51KARyyBys5THgizX" name="Database Relationships">
-        <mxGraphModel dx="761" dy="489" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="579" dy="546" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="xeOeXuuaT3CYkI-8F77P-0"/>
                 <mxCell id="xeOeXuuaT3CYkI-8F77P-1" parent="xeOeXuuaT3CYkI-8F77P-0"/>
