@@ -1,7 +1,9 @@
 default:
-  image: barckcode/bc-app:1.0
+  image: ubuntu:20.10
+  before_script:
+   - apt-get update
+   - apt-get install -y --no-install-recommends python3 python3-pip
+   - pip3 install -r requirements.txt
+   - pip3 install pymongo[srv]
 
-  job:
-    script:
-     - uname -a
-     - bundle exec python3 main.py
+  script: bundle exec python3 main.py
