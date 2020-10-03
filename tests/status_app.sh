@@ -28,8 +28,6 @@ else
     ps -v | grep python3 | egrep -v grep
     echo $?
     echo "*************************************"
-    echo "Errores:"
-    python3 main.py &
     sleep 5s
     pkill python3
 fi
