@@ -1,8 +1,19 @@
-default:
-  image: barckcode/bc-app:1.0
-  before_script:
+image: barckcode/bc-app:1.0
+
+stages:
+ - build
+ - test
+
+build_job:
+  stage: build
+  script:
    - python3 -V
    - pip3 -V
 
+
+test_job:
+  stage: test
   script:
    - python3 main.py
+   - sleep 10
+   - kill -9 `ps -v | grep python3 | egrep -v grep | awk '{print $1}'`
