@@ -1,0 +1,7 @@
+default:
+  image: barckcode/bc-app:1.0
+
+  job:
+    script:
+     - uname -a
+     - bundle exec python3 main.py
