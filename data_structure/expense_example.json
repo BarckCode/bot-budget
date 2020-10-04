@@ -1,16 +1,7 @@
 {
     "_id": "",
     "name": "Expenses",
-    "expense": [
-        {
-            "_id": "",
-            "value": ""
-        },
-        {
-            "_id": "",
-            "value": ""
-        }
-    ],
+    "expense": [],
 
-    "relationship_id": "43596404267294110"
+    "relationship_expense_id": "43596404267294110"
 }

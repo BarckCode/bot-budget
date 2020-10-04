@@ -5,18 +5,24 @@ Es un bot de telegram. Creado para ayudarte a manejar mejor tu presupuesto.
 - Datos 100% anónimos.
 
 
-## Buscar el bot en telegram:
+## 🤖 Buscar el bot en telegram:
 [@buget_control_bot](https://t.co/yHDmljQa0p?amp=1)
 
 
-## Comandos actuales del bot:
+## 💡 Comandos actuales del bot:
 - [x] /set_saldo - añade tu saldo actual.
 - [x] /set_ingreso - añade un ingreso.
 - [x] /set_gasto - añade un nuevo gasto.
 - [x] /saldo_actual - muestra tu saldo actual.
 
 
-### Issues con el bot:
+### ⛑ Issues con el bot:
 Si tienes algún problema o consulta con el bot no dudes en enviar un MD por twitter:
+
+
+### 🚀 Próximamente:
+- Podrás añadir tipos de gastos e ingresos.
+- Informes en excel de tus gastos e ingresos por mes.
+- Gráficas de gastos e ingresos.
 
 [@barckcode](https://twitter.com/barckcode)

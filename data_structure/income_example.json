@@ -1,16 +1,7 @@
 {
     "_id": "",
     "name": "Income",
-    "income": [
-        {
-            "_id": "",
-            "value": ""
-        },
-        {
-            "_id": "",
-            "value": ""
-        }
-    ],
+    "income": [],
 
-    "relationship_id": "43596404267294110"
+    "relationship_income_id": "43596404267294110"
 }
