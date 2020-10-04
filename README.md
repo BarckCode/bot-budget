@@ -19,10 +19,11 @@ Es un bot de telegram. Creado para ayudarte a manejar mejor tu presupuesto.
 ### ⛑ Issues con el bot:
 Si tienes algún problema o consulta con el bot no dudes en enviar un MD por twitter:
 
+[@barckcode](https://twitter.com/barckcode)
+
 
 ### 🚀 Próximamente:
 - Podrás añadir tipos de gastos e ingresos.
 - Informes en excel de tus gastos e ingresos por mes.
 - Gráficas de gastos e ingresos.
 
-[@barckcode](https://twitter.com/barckcode)
