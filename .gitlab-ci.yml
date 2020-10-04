@@ -3,7 +3,7 @@ image: barckcode/bc-app:1.0
 stages:
  - build
  - test
- - deploy
+ # - deploy
 
 build_job:
   stage: build
@@ -19,8 +19,8 @@ test_job:
    - pytest -v
 
 
-deploy_job:
-  stage: deploy
-  image: barckcode/bc-app:1.0
-  script:
-   - python3 main.py
+# deploy_job:
+#   stage: deploy
+#   image: barckcode/bc-app:1.0
+#   script:
+#    - python3 main.py
