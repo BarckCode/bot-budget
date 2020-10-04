@@ -19,7 +19,7 @@ class AllCommands():
     # Save Current Balance
     def save_current_balance(self, update, context):
         if len(context.args) == 0:
-            message = f'El comando necesita que le envíes un valor.\nPor ejemplo:\n/set_saldo 1000'
+            message = f'El comando necesita que le envíes un valor.\nPor ejemplo:\n/set_saldo 1000.00'
         else:
             message = 'Has configurado tu saldo actual en'
             self.data_controller.user_data(data=update.message['chat'], initial_budget=context.args)
@@ -34,9 +34,9 @@ class AllCommands():
     # Save Income
     def save_income(self, update, context):
         if len(context.args) == 0:
-            message = f'El comando necesita que le envíes un valor.\nPor ejemplo:\n/set_ingreso 100'
+            message = f'El comando necesita que le envíes un valor.\nPor ejemplo:\n/set_ingreso 100.00'
         else:
-            message = 'Has añadido este ingreso'
+            message = 'Has añadido un ingreso por valor de'
             self.data_controller.insert_income_expenses_data(user_data=update.message['chat'], field="relationship_income_id", type_data="income", value=context.args)
 
         self.messages.standard_message(
@@ -49,9 +49,9 @@ class AllCommands():
     # Save Expense
     def save_expense(self, update, context):
         if len(context.args) == 0:
-            message = f'El comando necesita que le envíes un valor.\nPor ejemplo:\n/set_gasto 200'
+            message = f'El comando necesita que le envíes un valor.\nPor ejemplo:\n/set_gasto 200.00'
         else:
-            message = 'Has añadido este gasto'
+            message = 'Has añadido un gasto por valor de'
             self.data_controller.insert_income_expenses_data(user_data=update.message['chat'], field="relationship_expense_id", type_data="expenses", value=context.args)
 
         self.messages.standard_message(
@@ -66,7 +66,8 @@ class AllCommands():
         if len(context.args) > 0:
             message = f'El comando no necesita valores.\nPara conocer tu saldo actual ejecuta:\n/saldo_actual'
         else:
-            message = 'Tu saldo actual es: 900'
+            current_balance = self.data_controller.check_current_balance(user_data=update.message['chat'])
+            message = f'Tu saldo actual es de: {current_balance}'
 
         self.messages.standard_message(
             update=update,
