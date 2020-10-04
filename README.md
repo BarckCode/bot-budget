@@ -14,6 +14,6 @@ Es un bot de telegram. Creado para ayudarte a manejar mejor tu presupuesto.
 
 
 ### Issues con el bot:
-Si tienes algún problema o consulta con el bot no dudes en enviar un correo a:
+Si tienes algún problema o consulta con el bot no dudes en enviar un MD por twitter:
 
-> incoming+barckcode-bot-budget-control-21298829-issue-@incoming.gitlab.com
+[@barckcode](https://twitter.com/barckcode)
