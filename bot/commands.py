@@ -37,6 +37,7 @@ class AllCommands():
             message = f'El comando necesita que le envíes un valor.\nPor ejemplo:\n/set_ingreso 100'
         else:
             message = 'Has añadido este ingreso'
+            self.data_controller.insert_income_expenses_data(user_data=update.message['chat'], field="relationship_income_id", type_data="income", value=context.args)
 
         self.messages.standard_message(
             update=update,
@@ -51,6 +52,7 @@ class AllCommands():
             message = f'El comando necesita que le envíes un valor.\nPor ejemplo:\n/set_gasto 200'
         else:
             message = 'Has añadido este gasto'
+            self.data_controller.insert_income_expenses_data(user_data=update.message['chat'], field="relationship_expense_id", type_data="expenses", value=context.args)
 
         self.messages.standard_message(
             update=update,

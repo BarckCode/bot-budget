@@ -47,7 +47,22 @@ class DataController():
                 "relationship_id": user_id
             }
 
+            income = {
+                "name": "Income",
+                "income": [],
+                "relationship_income_id": user_id
+            }
+
+            expenses = {
+                "name": "Expenses",
+                "expenses": [],
+                "relationship_expense_id": user_id
+            }
+
+
             self.model_api.insert_one_document_into_db(document=user)
+            self.model_api.insert_one_document_into_db(document=income)
+            self.model_api.insert_one_document_into_db(document=expenses)
         elif initial_budget != 0:
             # We look for the current value of initial_budget and replace it with the same value: initial_budget - initial_budget = 0
             find_value_and_replace_it(
@@ -59,5 +74,12 @@ class DataController():
             print('El usuario existe. A la espera de comandos...')
 
 
-    def income_data(self):
-        pass
+    def insert_income_expenses_data(self, user_data, field, type_data, value):
+        user_id = user_data.id
+
+        self.model_api.update_and_push(
+            field_to_search=field,
+            value_to_search=user_id,
+            field_to_push=type_data,
+            value_to_push=value[0]
+        )

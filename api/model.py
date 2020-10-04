@@ -38,6 +38,13 @@ class ModelApi():
         self.users.insert_one(document)
 
 
+    def update_and_push(self, field_to_search, value_to_search, field_to_push, value_to_push):
+        self.users.update(
+            {field_to_search: value_to_search},
+            {'$push': {field_to_push: value_to_push}}
+        )
+
+
     def find_one_and_update_document(self, field_to_search, value_to_search, field_to_replace, value_to_replace):
         self.users.find_one_and_update(
             {field_to_search: value_to_search},
