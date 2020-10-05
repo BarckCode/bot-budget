@@ -26,4 +26,3 @@ Si tienes algún problema o consulta con el bot no dudes en enviar un MD por twi
 - Podrás añadir tipos de gastos e ingresos.
 - Informes en excel de tus gastos e ingresos por mes.
 - Gráficas de gastos e ingresos.
-
