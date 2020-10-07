@@ -8,8 +8,8 @@ class AllMessages():
 
 
     # Welcome Message:
-    def welcome_message(self, update):
-        welcome_marckdown = open('./messages/welcome.md').read()
+    def get_message(self, update, message):
+        welcome_marckdown = open(message).read()
         update.message.reply_markdown(welcome_marckdown)
 
 

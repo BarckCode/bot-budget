@@ -1,4 +1,5 @@
-from bot.helpers.send_messages_helper import AllMessages
+# Internal Modules
+from utils import AllMessages
 from api import DataController
 
 class AllCommands():
@@ -12,7 +13,7 @@ class AllCommands():
 
     # Welcome Message:
     def start(self, update, context):
-        self.messages.welcome_message(update=update)
+        self.messages.get_message(update=update, message='./messages/welcome.md')
         self.data_controller.user_data(data=update.message['chat'])
 
 
@@ -74,12 +75,4 @@ class AllCommands():
             context=context,
             message=message,
             args=False
-        )
-
-
-    # Default message
-    def unknown(self, update, context):
-        context.bot.send_message(
-            chat_id=update.effective_chat.id,
-            text="Lo siento. Aún no entiendo ese comando"
         )

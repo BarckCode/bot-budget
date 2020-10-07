@@ -1,7 +1,7 @@
 # Python Core
 import os
 # Internal Modules
-from bot import load_bot
+from bot.bot_controller import load_bot
 
 
 def main():
