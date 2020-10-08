@@ -70,7 +70,7 @@ class DataController():
                 updater=self.model_api.find_one_and_update_document,
                 field='budget.initial_budget',
                 value='initial_budget',
-                updated_value=initial_budget[0]
+                updated_value=initial_budget
             )
         else:
             print('El usuario existe. A la espera de comandos...')
@@ -83,7 +83,7 @@ class DataController():
             field_to_search=field,
             value_to_search=user_id,
             field_to_push=type_data,
-            value_to_push=value[0]
+            value_to_push=value
         )
 
 

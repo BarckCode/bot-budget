@@ -13,15 +13,11 @@ class AllMessages():
         update.message.reply_markdown(welcome_marckdown)
 
 
-    # Standard Command Output
+    # Standard Command Output:
     def standard_message(self, update, context, message, args=True):
-        user_input = ' '.join(context.args)
-
         if args == True:
-            if len(context.args) == 0:
-                text_message = f'{message}'
-            else:
-                text_message = f'{message}: {user_input}'
+            argument = context.args[0]
+            text_message = f'{message}: {argument}'
         else:
             text_message = f'{message}'
 

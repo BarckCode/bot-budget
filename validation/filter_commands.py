@@ -6,7 +6,7 @@ def alerts(dispatcher, MessageHandler, Filters):
 
     # Filter all messages sent to the chat bot
     def filter_all(update, context):
-        messages.get_message(update=update, message='./messages/filter_all_messages.md')
+        messages.get_message(update=update, message='./messages/info/filter_all_messages.md')
 
         context.bot.send_message(
             chat_id=update.effective_chat.id,
