@@ -4,7 +4,7 @@ def filter_need_args(context, handler_messages, update):
         # Error message: Not receiving arguments
         handler_messages.get_message(
             update=update,
-            message='./messages/error/no_arguments.md'
+            message='./messages/error/requires_arguments.md'
         )
     else:
         try:

@@ -1,8 +1,8 @@
 # Internal Modules
 from utils import AllMessages
 from api import DataController
-from validation import filter_need_args
-from bot.commands import current_balance, set_income, set_expense
+from validation import filter_need_args, filter_no_need_args
+from bot.commands import set_balance, set_income, set_expense, show_current_balance
 
 
 class AllCommands():
@@ -28,7 +28,7 @@ class AllCommands():
             update=update,
         )
 
-        current_balance(
+        set_balance(
             argument=argument,
             command_function=self.data_controller.user_data,
             update=update,
@@ -71,17 +71,18 @@ class AllCommands():
         )
 
 
-    # Show current balance
+    # Get current balance
     def get_current_balance(self, update, context):
-        if len(context.args) > 0:
-            message = f'El comando no necesita valores.\nPara conocer tu saldo actual ejecuta:\n/saldo_actual'
-        else:
-            current_balance = self.data_controller.check_current_balance(user_data=update.message['chat'])
-            message = f'Tu saldo actual es de: {current_balance}'
-
-        self.messages.standard_message(
-            update=update,
+        validation = filter_no_need_args(
             context=context,
-            message=message,
-            args=False
+            handler_messages=self.messages,
+            update=update
+        )
+
+        show_current_balance(
+            validation=validation,
+            command_function=self.data_controller.check_current_balance,
+            update=update,
+            handler_messages=self.messages,
+            context=context,
         )
