@@ -1,0 +1,4 @@
+FROM python:rc-alpine3.12
+RUN pip3 install pytest
+WORKDIR /test
+CMD ["tail", "-f", "/dev/null"]

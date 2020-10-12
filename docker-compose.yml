@@ -1,8 +1,16 @@
 version: "3.8"
 
 services:
-  app:
-    container_name: bc-app
+  bot_app_test:
+    container_name: bot_app_test
+    build:
+      context: .
+      dockerfile: Dockerfile-test
+    env_file: .env
+    volumes:
+      - ".:/test/:rw"
+  bot_app:
+    container_name: bot_app
     build:
       context: .
       dockerfile: Dockerfile

@@ -9,10 +9,10 @@ build_job:
   script:
    - python3 -V
    - pip3 -V
-   - pytest -V
 
 
 test_job:
+  image: barckcode/pytest:1.0
   stage: test
   script:
    - pytest -v
