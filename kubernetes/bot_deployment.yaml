@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bot-deployment
+  labels:
+    app: bot
+spec:
+  replicas: 1
+  selector:
+   matchLabels:
+    app: bot
+  template:
+    metadata:
+     labels:
+       app: bot
+    spec:
+      containers:
+       - name: bot
+         image: barckcode/bot-app:0.3
+         env:
+          - name: TOKEN_API_TELEGRAM
+            valueFrom:
+              secretKeyRef:
+                name: token-api-telegram
+                key: token
+          - name: CONECTION_TO_DATABASE
+            valueFrom:
+              secretKeyRef:
+                name: conection-to-database
+                key: url

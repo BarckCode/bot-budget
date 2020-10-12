@@ -1,0 +1,4 @@
+FROM barckcode/bc-app:1.0
+WORKDIR /apps/bot
+COPY . .
+ENTRYPOINT [ "python3", "main.py" ]
